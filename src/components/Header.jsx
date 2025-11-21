@@ -1,6 +1,19 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+  const linkStyle = {
+    color: '#fff',
+    textDecoration: 'none',
+    cursor: 'pointer'
+  }
+
+  const activeLinkStyle = {
+    ...linkStyle,
+    textDecoration: 'underline',
+    fontWeight: 'bold'
+  }
+
   return (
     <header style={{
       backgroundColor: '#1a2b4a',
@@ -15,9 +28,38 @@ const Header = () => {
           margin: 0,
           padding: 0
         }}>
-          <li style={{ color: '#fff', cursor: 'pointer' }}>Home</li>
-          <li style={{ color: '#fff', cursor: 'pointer' }}>About</li>
-          <li style={{ color: '#fff', cursor: 'pointer' }}>Contact</li>
+          <li>
+            <NavLink 
+              to="/" 
+              style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
+              to="/about" 
+              style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
+            >
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
+              to="/contact" 
+              style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
+            >
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink 
+              to="/privacy" 
+              style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
+            >
+              Privacy policy
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
